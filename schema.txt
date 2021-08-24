@@ -1,0 +1,3 @@
+Medicine(med_id, name, price, composition, image, uses, type, category, side-effects, description )
+booking(booking_id, med_id, total_amount, user_id, delivery_address)
+delivery_address(user_id, address)
