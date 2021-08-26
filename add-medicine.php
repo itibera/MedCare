@@ -7,6 +7,7 @@ if (isset($_POST['add-med'])) {
   $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'webp');
   $medName = $_POST['med_name'];
   $company = $_POST['comp_name'];
+  $qty = $_POST['qty'];
   $type = $_POST['type'];
   $category = $_POST['category'];
   $composition = $_POST['compositions'];
@@ -38,7 +39,7 @@ if (isset($_POST['add-med'])) {
       if (move_uploaded_file($_FILES["med_image"]["tmp_name"], SITE_ROOT . $targetFilePath)) {
 
         // Image db insert sql 
-        $insertValuesSQL .= "('" . $medID . "','" . $medName . "', '" . $company . "', '" . $price . "', '" . $composition . "', '" . $thumb_image . "', '" . $uses . "', '" . $type . "', '" . $category . "', '" . $sideEffects . "', '" . $description . "'),";
+        $insertValuesSQL .= "('" . $medID . "','" . $medName . "', '" . $company . "', '" . $qty . "', '" . $price . "', '" . $composition . "', '" . $thumb_image . "', '" . $uses . "', '" . $type . "', '" . $category . "', '" . $sideEffects . "', '" . $description . "'),";
       } else {
         $errorUpload .= $fileName . ' | ';
       }
@@ -66,7 +67,7 @@ if (isset($_POST['add-med'])) {
 
   // Display status message 
   echo $statusMsg;
-  // echo "\n Hotel Added Successfully.";
+  // echo "\n Medicine Added Successfully.";
 }
 ?>
 <!DOCTYPE html>
@@ -92,6 +93,10 @@ if (isset($_POST['add-med'])) {
         <div class="input-field col s6">
           <input id="comp_name" name="comp_name" type="text" class="validate">
           <label for="comp_name">Company Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="qty" name="qty" type="text" class="validate">
+          <label for="qty">Quantity(e.g.- 14 Tablet in Strip)</label>
         </div>
         <div class="input-field col s6">
           <input id="type" name="type" type="text" class="validate">

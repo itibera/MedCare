@@ -112,7 +112,7 @@
             </div>
             <div class="card-content col s8">
               <div>
-                <p class="package-title">St.botanica Natural Apple... <span class="btn-acc right">500 Ml</span></p>
+                <p class="package-title">St.botanica Natural Apple... <span class="btn-acc right">14/strip</span></p>
               </div>
               <p style="font-size: small;">vitamin C, vitamin E and vitamin A, B complex...</p>
               <br><br>
