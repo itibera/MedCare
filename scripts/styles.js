@@ -16,4 +16,7 @@ $(document).ready(function () {
     $('select').formSelect();
 
     $('.sidenav').sidenav();
+
+    $('.collapsible').collapsible();
+    console.log("hi");
 });
