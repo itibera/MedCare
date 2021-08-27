@@ -8,7 +8,7 @@
 
 body{
     background-color:var(--bg-primary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: var(--text-primary);
 }
 
@@ -41,7 +41,7 @@ nav {
 
 .brand-logo {
     color: var(--primary);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 nav .brand-logo {
@@ -56,7 +56,7 @@ nav .brand-logo {
     line-height: 36px;
     height: 2.5rem;
     padding: 0 25px;
-    border-radius: 300px;
+    border-radius: 8px;
     font-weight: 600;
 }
 
@@ -318,7 +318,7 @@ button:focus {
 .package-card .card-image img {
     border-radius: 8px 0 0 8px;
     height: 10rem;
-    margin: 1.5rem 0;
+    margin: 1.25rem 0;
 }
 
 .package-card h6 {
@@ -604,7 +604,7 @@ button:focus {
     
 
     .package-card .card-image img {
-        width: 84vw;
+        display: none;
     }
 
     .form-container {
