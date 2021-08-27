@@ -18,5 +18,5 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
 
     $('.collapsible').collapsible();
-    console.log("hi");
+    // console.log("hi");
 });

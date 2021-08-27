@@ -15,7 +15,7 @@
   <!--=====================Search Contents==================-->
   <p>&nbsp;</p>
   <div class="container">
-    <form action="" class="center-align" id="search_con">
+    <form action="" class="center-align" id="search-medicine-form">
       <div class="row">
         <div class="input-field col l4 s12" id="input-from">
           <input id="Pin-Code" type="number" class="validate">
@@ -25,11 +25,11 @@
           <i class="fas fa-exchange-alt"></i>
         </div>
         <div class="input-field col l4 s12" id="input-to">
-          <input id="medicine-name" type="text" class="validate">
+          <input id="medicine-name" type="text" class="validate" required>
           <label for="medicine-name">Search for Medicine </label>
         </div>
         <div class="col l2 s12" style="padding-top: 1.25rem;">
-          <button class="btn-primary center-align" id="search-package-btn">Search</button>
+          <button class="btn-primary center-align" id="search-medicine-btn">Search</button>
         </div>
       </div>
     </form>
@@ -38,93 +38,16 @@
     <!--==================Search Result========================-->
 
     <p>&nbsp;</p>
-    <div class="search-filter-heading">
-      <span>Search Results</span>
+    <div class="">
+      <h5>Search Results</h5>
 
 
       <!-- ============ Package List =============== -->
-      <div class="row">
+      <div class="row" id="search-items">
 
-        <div class="col s6">
-          <div class="card package-card row">
-            <div class="card-image col s4">
-              <img src="./images/pharmeasy_in/stbotanica-natural-apple-cider-vinegar-with-mother-vinegar-500-ml-raw-unfiltered-unrefined-2-1621503576.jpg" alt="">
-            </div>
-            <div class="card-content col s8">
-              <div>
-                <p class="package-title">St.botanica Natural Apple... <span class="btn-acc right">500 Ml</span></p>
-              </div>
-              <p style="font-size: small;">vitamin C, vitamin E and vitamin A, B complex...</p>
-              <br><br>
-              <div>
-                <p>
-                  <span style="font-size: large; line-height: 2;"><b>MRP ₹375</b></span>
-                  <span><button class="btn-primary right">Add To Cart</button></span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col s6">
-          <div class="card package-card row">
-            <div class="card-image col s4">
-              <img src="./images/pharmeasy_in/stbotanica-natural-apple-cider-vinegar-with-mother-vinegar-500-ml-raw-unfiltered-unrefined-2-1621503576.jpg" alt="">
-            </div>
-            <div class="card-content col s8">
-              <div>
-                <p class="package-title">St.botanica Natural Apple... <span class="btn-acc right">500 Ml</span></p>
-              </div>
-              <p style="font-size: small;">vitamin C, vitamin E and vitamin A, B complex...</p>
-              <br><br>
-              <div>
-                <p>
-                  <span style="font-size: large; line-height: 2;"><b>MRP ₹375</b></span>
-                  <span><button class="btn-primary right">Add To Cart</button></span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col s6">
-          <div class="card package-card row">
-            <div class="card-image col s4">
-              <img src="./images/pharmeasy_in/stbotanica-natural-apple-cider-vinegar-with-mother-vinegar-500-ml-raw-unfiltered-unrefined-2-1621503576.jpg" alt="">
-            </div>
-            <div class="card-content col s8">
-              <div>
-                <p class="package-title">St.botanica Natural Apple... <span class="btn-acc right">500 Ml</span></p>
-              </div>
-              <p style="font-size: small;">vitamin C, vitamin E and vitamin A, B complex...</p>
-              <br><br>
-              <div>
-                <p>
-                  <span style="font-size: large; line-height: 2;"><b>MRP ₹375</b></span>
-                  <span><button class="btn-primary right">Add To Cart</button></span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col s6">
-          <div class="card package-card row">
-            <div class="card-image col s4">
-              <img src="./images/pharmeasy_in/stbotanica-natural-apple-cider-vinegar-with-mother-vinegar-500-ml-raw-unfiltered-unrefined-2-1621503576.jpg" alt="">
-            </div>
-            <div class="card-content col s8">
-              <div>
-                <p class="package-title">St.botanica Natural Apple... <span class="btn-acc right">14/strip</span></p>
-              </div>
-              <p style="font-size: small;">vitamin C, vitamin E and vitamin A, B complex...</p>
-              <br><br>
-              <div>
-                <p>
-                  <span style="font-size: large; line-height: 2;"><b>MRP ₹375</b></span>
-                  <span><button class="btn-primary right">Add To Cart</button></span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+
+
+
 
       </div>
       <p>&nbsp;</p>
@@ -142,6 +65,65 @@
   <?php include "footer.php"; ?>
   <!-- ========= End of Footer =========== -->
   <script src="./scripts/styles.js"></script>
+  <script>
+    function setData(searchItems) {
+      // cardMedicines = searchItems;
+      var data = '';
+      
+
+      searchItems.forEach(searchItem => {
+        data += `<div class="col s12 l6">
+                <div class="card package-card row">
+                  <div class="card-image col m4">
+                    <img src="${searchItem.image}" alt="">
+                  </div>
+                  <div class="card-content col s12 m8">
+                    <div>
+                      <p class="package-title">${searchItem.name.substring(0,25)}</p>
+                    </div>
+                    <p style="font-size: small;">${searchItem.company}</p>
+                    <p style="font-size: 1rem; margin-top: 10px; font-weight: 500;">${searchItem.packQty}</p>
+                    <br>
+                    <div>
+                      <p>
+                        <span style="font-size: 1rem; line-height: 2.5; font-weight: 600;">MRP: ₹${searchItem.price}</span>
+                        <a class="btn-primary right" href="medicine-details.php?medID=${searchItem.id}">See Details</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>`;
+
+        
+      });
+
+      $('#search-items').html(data);
+     
+    }
+    $('#search-medicine-form').submit(function(e) {
+      e.preventDefault()
+      var searchParam= document.getElementById('medicine-name').value;
+      $.ajax({
+        url: "api/api_search.php",
+        type: "GET",
+        data: {
+          searchParam: searchParam
+        },
+        cache: false,
+        success: function(dataResult) {
+          var dataResult = JSON.parse(dataResult);
+          console.log(dataResult);
+          if (dataResult.statusCode == 200) {
+            setData(dataResult.data);
+
+          } else if (dataResult.statusCode == 201) {
+            $('body').html(errorTemplate);
+          }
+
+        }
+      });
+    })
+  </script>
 
 
 </body>

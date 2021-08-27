@@ -29,7 +29,7 @@
 
     <div class="row">
       <div class="col l7 s12">
-        <img class="pimg" src="images/skincare-products.jpg">
+        <img class="pimg" src="">
 
 
       </div>
@@ -54,7 +54,7 @@
           <br>
           <br>
           <div>
-            <form action="">
+            <form action="" id="add-cart-form">
               <div class="row">
                 <div class="input-field col s6">
                   <input id="qty" type="number" class="validate" required>
@@ -136,7 +136,9 @@
 
       function getComposition(compositions) {
         var data = "";
+        // console.log(compositions)
         compositions = compositions.split(", ");
+        // console.log(compositions) 
         compositions.forEach(composition => {
           data += `<span class="chip">${composition}</span>`;
         })
@@ -145,7 +147,9 @@
 
       function getsideEffects(sideEffects) {
         var data = "<ul>";
+        // console.log(sideEffects)
         sideEffects = sideEffects.split("\n");
+        //  console.log(sideEffects)
         sideEffects.forEach(sideEffect => {
           data += `<li>${sideEffect}</li>`;
         })
@@ -173,7 +177,7 @@
 
       // ================= Fetching Data from API ===================
       var medID = urlParams.get('medID')
-      console.log(medID)
+      // console.log(medID)
       $.ajax({
         url: "api/api_medicine.php",
         type: "GET",
@@ -197,8 +201,8 @@
     });
   </script>
   <script>
-    const cart_btn = document.getElementById("add-cart")
-    cart_btn.addEventListener("click", (e) => {
+    const cart_btn = document.getElementById("add-cart-form")
+    cart_btn.addEventListener("submit", (e) => {
       e.preventDefault();
       var urlParams = new URLSearchParams(window.location.search);
       var medID = urlParams.get('medID')
